@@ -2,6 +2,7 @@ import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
 import { galleryImages } from "../data/gallery";
 import { useSeo } from "../hooks/useSeo";
+import Banner from "../components/Banner";
 
 const feedItems = [...galleryImages, ...galleryImages, ...galleryImages].map((item, idx) => ({
   ...item,
@@ -18,12 +19,14 @@ export default function Gallery() {
     <div id="gallery" className="min-h-screen bg-background">
       <Navigation />
 
-      <div className="bg-primary px-4 pb-16 pt-32 text-center text-white md:pb-24 md:pt-48">
-        <div className="container-custom">
-          <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">Visual Feed</h1>
-          <p className="mx-auto max-w-2xl text-lg text-white/80">A mobile-first endless-style gallery inspired by social feed scrolling.</p>
-        </div>
-      </div>
+      <Banner
+        image="https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&q=80&w=1600"
+        title="Gallery | Hikal Guest House"
+        subtitle="Gallery of Hikal Guest House"
+        rating={5}
+        ratingPlatform="Gallery"
+        ratingText="Gallery"
+      />
 
       <div className="container-custom py-12 md:py-16">
         <div className="mx-auto grid max-w-3xl grid-cols-1 gap-6">
@@ -37,7 +40,7 @@ export default function Gallery() {
                 className={`w-full object-cover ${idx % 3 === 0 ? "h-[420px]" : idx % 3 === 1 ? "h-[360px]" : "h-[300px]"}`}
               />
               <div className="px-4 py-3">
-                <p className="text-sm font-medium uppercase tracking-wide text-accent">{item.category}</p>
+                <p className="font-ui text-[11px] font-medium uppercase tracking-wide text-accent">{item.category}</p>
                 <p className="mt-1 text-sm text-muted-foreground">Captured moments from our rooms, property, and valley life.</p>
               </div>
             </article>

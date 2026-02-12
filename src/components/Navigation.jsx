@@ -38,9 +38,19 @@ export function Navigation() {
               </span>
             </Link>
           ))}
-          <Link href="/booking" className={`rounded-full px-6 py-2 text-sm font-medium transition-transform hover:-translate-y-0.5 ${scrolled || location !== "/" ? "bg-primary text-white hover:bg-primary/90" : "bg-white text-primary hover:bg-white/90"}`}>
-            Book Now
-          </Link>
+          <div className="flex items-center gap-4">
+           
+            <Link
+              href="/booking"
+              className={`font-ui rounded-full px-6 py-2 text-sm font-medium transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
+                scrolled || location !== "/"
+                  ? "bg-primary text-white hover:bg-primary/90 focus-visible:ring-primary"
+                  : "bg-white text-primary hover:bg-white/90 focus-visible:ring-white"
+              }`}
+            >
+              Book Now
+            </Link>
+          </div>
         </div>
 
         <button className="p-2 lg:hidden" onClick={() => setIsOpen((prev) => !prev)} type="button" aria-label="Toggle menu">
@@ -55,7 +65,11 @@ export function Navigation() {
               {link.label}
             </Link>
           ))}
-          <Link href="/booking" onClick={() => setIsOpen(false)} className="mt-4 block w-full rounded-xl bg-primary px-4 py-3 text-center text-white">
+          <Link
+            href="/booking"
+            onClick={() => setIsOpen(false)}
+            className="font-ui mt-4 block w-full rounded-xl bg-primary px-4 py-3 text-center text-white transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          >
             Book Your Stay
           </Link>
         </div>

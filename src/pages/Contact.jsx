@@ -6,6 +6,7 @@ import { Reveal } from "../components/Reveal";
 import { useSendMessage } from "../hooks/useContact";
 import { useToast } from "../hooks/useToast.jsx";
 import { useSeo } from "../hooks/useSeo";
+import Banner from "../components/Banner.jsx";
 
 export default function Contact() {
   useSeo({
@@ -36,15 +37,14 @@ export default function Contact() {
     <div id="contact" className="min-h-screen bg-background">
       <Navigation />
 
-      <Reveal delay={60}>
-        <div className="bg-primary px-4 pb-16 pt-32 text-center text-white md:pb-24 md:pt-48">
-          <div className="container-custom">
-            <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">Contact Us</h1>
-            <p className="mx-auto max-w-2xl text-lg text-white/80">We are here to assist you. Reach out for inquiries, directions, or special arrangements.</p>
-          </div>
-        </div>
-      </Reveal>
-
+      <Banner
+        image="https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&q=80&w=1600"
+        title="Gallery | Hikal Guest House"
+        subtitle="Gallery of Hikal Guest House"
+        rating={5}
+        ratingPlatform="Gallery"
+        ratingText="Gallery"
+      />
       <div className="container-custom py-24">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           <Reveal delay={100}>
@@ -66,7 +66,7 @@ export default function Contact() {
                 <div><label className="mb-2 block text-sm font-medium">Email</label><input type="email" className="h-12 w-full rounded-xl border border-border/60 px-4" placeholder="email@example.com" {...register("email", { required: "Email is required" })} />{errors.email ? <p className="mt-1 text-xs text-red-600">{errors.email.message}</p> : null}</div>
                 <div><label className="mb-2 block text-sm font-medium">Subject</label><input className="h-12 w-full rounded-xl border border-border/60 px-4" placeholder="Inquiry about..." {...register("subject", { required: "Subject is required" })} />{errors.subject ? <p className="mt-1 text-xs text-red-600">{errors.subject.message}</p> : null}</div>
                 <div><label className="mb-2 block text-sm font-medium">Message</label><textarea className="min-h-[150px] w-full rounded-xl border border-border/60 px-4 py-3" placeholder="How can we help you?" {...register("message", { required: "Message is required" })} />{errors.message ? <p className="mt-1 text-xs text-red-600">{errors.message.message}</p> : null}</div>
-                <button type="submit" disabled={isPending} className="flex h-12 w-full items-center justify-center rounded-xl bg-primary text-lg text-white transition-colors hover:bg-primary/90 disabled:opacity-60">{isPending ? <Loader2 className="h-5 w-5 animate-spin" /> : "Send Message"}</button>
+                <button type="submit" disabled={isPending} className="font-ui flex h-12 w-full items-center justify-center rounded-xl bg-primary text-lg text-white transition-colors hover:bg-primary/90 disabled:opacity-60">{isPending ? <Loader2 className="h-5 w-5 animate-spin" /> : "Send Message"}</button>
               </form>
             </div>
           </Reveal>

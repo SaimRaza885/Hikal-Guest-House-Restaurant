@@ -7,13 +7,18 @@ export function RoomCard({ room }) {
   const imageUrl = room.images?.[0] || "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&q=80&w=800";
   const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi, I want to book the ${room.title} at Hikal Guest House.`)}`;
 
+ 
+
   return (
     <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border/50 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
       <div className="relative h-64 overflow-hidden">
         <img src={imageUrl} alt={room.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
         <div className="absolute inset-0 bg-black/20 transition-colors group-hover:bg-black/10" />
-        <div className="absolute bottom-4 left-4 rounded-full bg-white/95 px-4 py-1.5 text-sm font-semibold text-primary backdrop-blur-sm">
-          PKR {room.price.toLocaleString()} <span className="text-xs font-normal text-muted-foreground">/ night</span>
+        <div className="absolute bottom-4 left-4 rounded-full bg-white/95 px-4 py-1.5 text-xs font-semibold text-primary backdrop-blur-sm">
+          <div>
+            PKR {room.price.toLocaleString()} <span className="text-[11px] font-normal text-muted-foreground">/ night</span>
+          </div>
+          
         </div>
       </div>
 
@@ -28,12 +33,19 @@ export function RoomCard({ room }) {
 
         <p className="mb-6 flex-grow text-sm text-muted-foreground">{room.description}</p>
 
-        <div className="mt-auto grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="mt-auto grid grid-cols-1 gap-3 ">
           <Link href={`/rooms/${room.slug}`} className="rounded-xl bg-primary px-4 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-primary/90">
             View Details
           </Link>
-          <a href={whatsappLink} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-xl border border-primary px-4 py-3 text-center text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white">
-            <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center justify-center rounded-xl border px-4 py-3 text-center text-sm font-medium transition-colors !border-green-500 text-green-500 hover:bg-green-500 hover:text-white"
+          >
+
+
+            <MessageCircle className="mr-2 h-4 w-4" /> Book on WhatsApp
           </a>
         </div>
       </div>

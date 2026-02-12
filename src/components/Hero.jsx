@@ -60,10 +60,16 @@ export function Hero() {
 
         <Reveal delay={420}>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Link href="/booking" className="rounded-full bg-accent px-8 py-4 text-lg text-white transition-colors hover:bg-accent/90">
+            <Link
+              href="/booking"
+              className="font-ui rounded-full bg-accent px-8 py-4 text-lg text-white transition-transform transition-colors hover:bg-accent/90 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+            >
               Check Availability
             </Link>
-            <Link href="/rooms#rooms" className="inline-flex items-center rounded-full border border-white bg-transparent px-8 py-4 text-lg text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-primary">
+            <Link
+              href="/rooms#rooms"
+              className="font-ui inline-flex items-center rounded-full border border-white bg-transparent px-8 py-4 text-lg text-white backdrop-blur-sm transition-transform transition-colors hover:bg-white hover:text-primary hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+            >
               View Rooms <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </div>
@@ -84,7 +90,14 @@ export function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      
+      <div className="pointer-events-none absolute inset-x-0 bottom-10 flex justify-center">
+        <div className="flex flex-col items-center text-white/80">
+          <span className="mb-2 text-xs uppercase tracking-[0.3em]">Scroll</span>
+          <div className="h-10 w-[2px] overflow-hidden rounded-full bg-white/25">
+            <div className="h-10 w-full animate-[scrollIndicator_1.4s_ease-in-out_infinite] bg-white" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

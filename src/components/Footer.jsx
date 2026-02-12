@@ -1,9 +1,9 @@
-﻿import { Link } from "wouter";
+import { Link } from "wouter";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-primary pb-8 pt-16 text-primary-foreground">
+    <footer className="bg-black pb-8 pt-16 text-primary-foreground">
       <div className="container-custom mb-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-4">
           <div>
@@ -51,7 +51,7 @@ export function Footer() {
             <a href="#" className="rounded-full bg-white/10 p-2 transition-all hover:bg-accent hover:text-white"><Instagram className="h-5 w-5" /></a>
           </div>
           <div className="pt-4">
-            <Link href="/booking" className="block w-full rounded-xl bg-accent px-6 py-3 text-center font-medium text-white transition-colors hover:bg-accent/90">
+            <Link href="/booking" className="font-ui block w-full rounded-xl bg-accent px-6 py-3 text-center font-medium text-white transition-colors hover:bg-accent/90">
               Book Your Stay
             </Link>
           </div>

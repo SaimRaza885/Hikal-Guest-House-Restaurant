@@ -93,6 +93,16 @@ export default function RoomDetails({ params }) {
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState("2");
 
+  const nights = useMemo(() => {
+    if (!checkIn || !checkOut) return 1;
+    const inDate = new Date(checkIn);
+    const outDate = new Date(checkOut);
+    const diffMs = outDate.getTime() - inDate.getTime();
+    const diffDays = diffMs / (1000 * 60 * 60 * 24);
+    if (!Number.isFinite(diffDays) || diffDays <= 0) return 1;
+    return Math.round(diffDays);
+  }, [checkIn, checkOut]);
+
   const roomMeta = ROOM_DETAILS[slug];
 
   const gallery = useMemo(() => {
@@ -143,7 +153,13 @@ export default function RoomDetails({ params }) {
     );
   }
 
-  const whatsappMessage = `Hi, I want to book the ${room.title}. Check-in: ${checkIn || "N/A"}, Check-out: ${checkOut || "N/A"}, Guests: ${guests}.`;
+  const totalPrice = room.price * nights;
+
+  const todayStr = new Date().toISOString().split("T")[0];
+  const minCheckIn = todayStr;
+  const minCheckOut = checkIn || todayStr;
+
+  const whatsappMessage = `Hi, I want to book the ${room.title}. Check-in: ${checkIn || "N/A"}, Check-out: ${checkOut || "N/A"}, Nights: ${nights}, Guests: ${guests}. Total (approx): PKR ${totalPrice.toLocaleString()}.`;
   const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
   const quickInfo = roomMeta?.quick || [
@@ -351,23 +367,57 @@ export default function RoomDetails({ params }) {
               <div className="rounded-2xl border border-border/60 bg-white p-6 shadow-sm">
                 <p className="text-sm text-muted-foreground">Price per night</p>
                 <p className="mt-1 text-3xl font-bold text-primary">PKR {room.price.toLocaleString()}</p>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  {checkIn && checkOut ? (
+                    <>
+                      Approx. stay: <span className="font-semibold text-foreground">{nights}</span> night{nights > 1 ? "s" : ""} —{" "}
+                      <span className="font-semibold text-primary">PKR {totalPrice.toLocaleString()}</span> total
+                    </>
+                  ) : (
+                    "Select check-in and check-out dates to see your total."
+                  )}
+                </p>
 
                 <div className="mt-5 space-y-3">
                   <div>
                     <label className="mb-1 block text-xs font-medium text-muted-foreground">Check-in</label>
-                    <input type="date" value={checkIn} onChange={(e) => setCheckIn(e.target.value)} className="h-11 w-full rounded-lg border border-border px-3 text-sm" />
+                    <input
+                      type="date"
+                      min={minCheckIn}
+                      value={checkIn}
+                      onChange={(e) => setCheckIn(e.target.value)}
+                      className="h-11 w-full rounded-lg border border-border px-3 text-sm"
+                    />
                   </div>
                   <div>
                     <label className="mb-1 block text-xs font-medium text-muted-foreground">Check-out</label>
-                    <input type="date" value={checkOut} onChange={(e) => setCheckOut(e.target.value)} className="h-11 w-full rounded-lg border border-border px-3 text-sm" />
+                    <input
+                      type="date"
+                      min={minCheckOut}
+                      value={checkOut}
+                      onChange={(e) => setCheckOut(e.target.value)}
+                      className="h-11 w-full rounded-lg border border-border px-3 text-sm"
+                    />
                   </div>
                   <div>
                     <label className="mb-1 block text-xs font-medium text-muted-foreground">Guests</label>
-                    <select value={guests} onChange={(e) => setGuests(e.target.value)} className="h-11 w-full rounded-lg border border-border px-3 text-sm">
-                      {[1, 2, 3, 4, 5].map((count) => (
-                        <option key={count} value={String(count)}>{count} Guest{count > 1 ? "s" : ""}</option>
-                      ))}
+                    <select
+                      value={guests}
+                      onChange={(e) => setGuests(e.target.value)}
+                      className="h-11 w-full rounded-lg border border-border px-3 text-sm"
+                    >
+                      {Array.from({ length: capacity.maxGuests || room.capacity || 1 }).map((_, idx) => {
+                        const count = idx + 1;
+                        return (
+                          <option key={count} value={String(count)}>
+                            {count} Guest{count > 1 ? "s" : ""}
+                          </option>
+                        );
+                      })}
                     </select>
+                    <p className="mt-1 text-[11px] text-muted-foreground">
+                      Max {capacity.maxGuests || room.capacity} guest{(capacity.maxGuests || room.capacity) > 1 ? "s" : ""} for this room.
+                    </p>
                   </div>
                 </div>
 
@@ -382,7 +432,7 @@ export default function RoomDetails({ params }) {
                   href={whatsappLink}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-3 inline-flex w-full items-center justify-center rounded-xl border border-green-600 px-4 py-3 text-sm font-medium text-green-700 transition-colors hover:bg-green-600 hover:text-white"
+                  className="mt-3 inline-flex w-full items-center justify-center rounded-xl border border-accent px-4 py-3 text-sm font-medium text-accent transition-colors hover:bg-accent hover:text-accent-foreground"
                 >
                   <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp Booking
                 </a>

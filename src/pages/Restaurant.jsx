@@ -15,6 +15,7 @@ import { Footer } from "../components/Footer";
 import { Reveal } from "../components/Reveal";
 import { useSeo } from "../hooks/useSeo";
 import { useToast } from "../hooks/useToast.jsx";
+import Banner from "../components/Banner.jsx";
 
 const WHATSAPP_NUMBER = "923001234567";
 
@@ -33,22 +34,30 @@ const experienceFeatures = [
 ];
 
 const menuSections = [
-  { id: "menu-breakfast", title: "Breakfast", items: [
-    { id: "b-1", name: "Hunza Morning Plate", desc: "Fiti bread, apricot preserve, eggs, tea.", price: "PKR 1,650", image: "https://images.unsplash.com/photo-1495214783159-3503fd1b572d?auto=format&fit=crop&q=80&w=900" },
-    { id: "b-2", name: "Continental Set", desc: "Toast, croissant, butter, seasonal fruits.", price: "PKR 1,450", image: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&q=80&w=900" }
-  ]},
-  { id: "menu-lunch", title: "Lunch", items: [
-    { id: "l-1", name: "Signature Chicken Karahi", desc: "Slow-cooked tomato masala and fresh coriander.", price: "PKR 2,950", image: "https://images.unsplash.com/photo-1604909052743-94e838986d24?auto=format&fit=crop&q=80&w=900" },
-    { id: "l-2", name: "Korean Beef Bowl", desc: "Grilled beef, rice, sesame, and house glaze.", price: "PKR 3,150", image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=900" }
-  ]},
-  { id: "menu-dinner", title: "Dinner", items: [
-    { id: "d-1", name: "Middle Eastern Mix Grill", desc: "Kebabs, saffron rice, grilled vegetables.", price: "PKR 4,250", image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=900" },
-    { id: "d-2", name: "Japanese Teriyaki Plate", desc: "Glazed protein, vegetables, and jasmine rice.", price: "PKR 3,450", image: "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?auto=format&fit=crop&q=80&w=900" }
-  ]},
-  { id: "menu-drinks", title: "Drinks", items: [
-    { id: "dr-1", name: "Apricot Cooler", desc: "Refreshing local apricot blend with mint.", price: "PKR 650", image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&q=80&w=900" },
-    { id: "dr-2", name: "Karak Chai & Desserts", desc: "Classic chai with chef dessert selection.", price: "PKR 990", image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=900" }
-  ]}
+  {
+    id: "menu-breakfast", title: "Breakfast", items: [
+      { id: "b-1", name: "Hunza Morning Plate", desc: "Fiti bread, apricot preserve, eggs, tea.", price: "PKR 1,650", image: "https://images.unsplash.com/photo-1495214783159-3503fd1b572d?auto=format&fit=crop&q=80&w=900" },
+      { id: "b-2", name: "Continental Set", desc: "Toast, croissant, butter, seasonal fruits.", price: "PKR 1,450", image: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&q=80&w=900" }
+    ]
+  },
+  {
+    id: "menu-lunch", title: "Lunch", items: [
+      { id: "l-1", name: "Signature Chicken Karahi", desc: "Slow-cooked tomato masala and fresh coriander.", price: "PKR 2,950", image: "https://images.unsplash.com/photo-1604909052743-94e838986d24?auto=format&fit=crop&q=80&w=900" },
+      { id: "l-2", name: "Korean Beef Bowl", desc: "Grilled beef, rice, sesame, and house glaze.", price: "PKR 3,150", image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=900" }
+    ]
+  },
+  {
+    id: "menu-dinner", title: "Dinner", items: [
+      { id: "d-1", name: "Middle Eastern Mix Grill", desc: "Kebabs, saffron rice, grilled vegetables.", price: "PKR 4,250", image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=900" },
+      { id: "d-2", name: "Japanese Teriyaki Plate", desc: "Glazed protein, vegetables, and jasmine rice.", price: "PKR 3,450", image: "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?auto=format&fit=crop&q=80&w=900" }
+    ]
+  },
+  {
+    id: "menu-drinks", title: "Drinks", items: [
+      { id: "dr-1", name: "Apricot Cooler", desc: "Refreshing local apricot blend with mint.", price: "PKR 650", image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&q=80&w=900" },
+      { id: "dr-2", name: "Karak Chai & Desserts", desc: "Classic chai with chef dessert selection.", price: "PKR 990", image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=900" }
+    ]
+  }
 ];
 
 const restaurantReviews = [
@@ -78,22 +87,18 @@ export default function Restaurant() {
     <div id="restaurant" className="min-h-screen bg-background">
       <Navigation />
 
-      <Reveal delay={60}>
-        <section className="relative min-h-[72vh] overflow-hidden bg-primary md:min-h-[86vh]">
-          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2200&auto=format&fit=crop" alt="Hikal restaurant dining area" className="absolute inset-0 h-full w-full object-cover" loading="eager" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/45" />
-          <div className="container-custom relative z-10 flex min-h-[72vh] flex-col items-start justify-center py-28 md:min-h-[86vh]">
-            <span className="mb-4 inline-flex items-center rounded-full bg-accent/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-white"><Sun className="mr-2 h-4 w-4" /> Breakfast, Lunch & Dinner Available</span>
-            <div className="max-w-3xl rounded-2xl bg-black/40 p-6 backdrop-blur-sm md:p-8">
-              <h1 className="text-4xl font-bold leading-tight text-white md:text-6xl">Savor Flavors with Stunning Mountain Views</h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">Family-friendly dining with Chinese, Indian, Japanese, Korean, Middle Eastern, and Asian cuisines.</p>
-              <a href="#reserve-table" className="mt-7 inline-flex items-center rounded-xl bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-accent/90">Reserve a Table</a>
-            </div>
-          </div>
-        </section>
-      </Reveal>
+      <Banner
+        image="https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&q=80&w=1600"
+        title="Mountain Hospitality Reimagined"
+        subtitle="A peaceful family‑run retreat at Rakaposhi View Point offering breathtaking views, authentic Hunza warmth, and unforgettable stays."
+        rating={5}
+        ratingPlatform="Booking.com"
+        ratingText="Rated Exceptional"
+      />
 
-      <a href="#reserve-table" className="fixed bottom-5 right-4 z-40 inline-flex items-center rounded-full bg-accent px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white shadow-lg shadow-accent/35 md:bottom-8 md:right-8">Reserve Table</a>
+
+
+      <a href="#reserve-table" className="font-ui fixed bottom-5 right-4 z-40 inline-flex items-center rounded-full bg-accent px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white shadow-lg shadow-accent/35 md:bottom-8 md:right-8">Reserve Table</a>
 
       <Reveal delay={100}>
         <section className="py-20">
@@ -119,7 +124,7 @@ export default function Restaurant() {
             <h2 className="mb-8 text-3xl font-bold md:text-4xl">Restaurant Experience</h2>
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
               <div className="overflow-hidden rounded-2xl border border-border/60 bg-muted/20 lg:col-span-2"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=1800" alt="Restaurant ambience" className="h-[360px] w-full object-cover" loading="lazy" /></div>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">{experienceFeatures.map((feature, idx) => {const Icon = feature.icon; return <Reveal key={feature.id} delay={80 + idx * 120}><article className="rounded-xl border border-border/50 bg-[#FAF9F6] p-4 shadow-sm"><div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary"><Icon className="h-5 w-5" /></div><h3 className="text-base font-semibold">{feature.title}</h3><p className="mt-1 text-sm text-muted-foreground">{feature.desc}</p></article></Reveal>;})}</div>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">{experienceFeatures.map((feature, idx) => { const Icon = feature.icon; return <Reveal key={feature.id} delay={80 + idx * 120}><article className="rounded-xl border border-border/50 bg-[#FAF9F6] p-4 shadow-sm"><div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary"><Icon className="h-5 w-5" /></div><h3 className="text-base font-semibold">{feature.title}</h3><p className="mt-1 text-sm text-muted-foreground">{feature.desc}</p></article></Reveal>; })}</div>
             </div>
           </div>
         </section>
@@ -128,7 +133,7 @@ export default function Restaurant() {
       <Reveal delay={160}>
         <section className="py-20">
           <div className="container-custom">
-            <div className="mb-8 flex items-center justify-between"><h2 className="text-3xl font-bold md:text-4xl">Menu</h2><button className="rounded-xl border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white" type="button">View Full Menu</button></div>
+            <div className="mb-8 flex items-center justify-between"><h2 className="text-3xl font-bold md:text-4xl">Menu</h2><button className="font-ui rounded-xl border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white" type="button">View Full Menu</button></div>
             <div className="space-y-12">
               {menuSections.map((section, sectionIdx) => (
                 <div key={section.id}>
@@ -159,17 +164,17 @@ export default function Restaurant() {
       <Reveal delay={220}>
         <section id="reserve-table" className="py-20">
           <div className="container-custom grid grid-cols-1 gap-8 lg:grid-cols-3">
-            <div className="rounded-2xl border border-border/50 bg-primary p-8 text-primary-foreground lg:col-span-1"><h2 className="text-3xl font-bold text-white">Table Reservation</h2><p className="mt-3 text-sm leading-relaxed text-primary-foreground/90">Reserve in advance for terrace seating and peak dinner hours.</p><p className="mt-6 text-xs uppercase tracking-[0.2em] text-accent">Quick options</p><a href={whatsappLink} target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center rounded-xl bg-green-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-green-700"><MessageCircle className="mr-2 h-4 w-4" /> WhatsApp Booking</a></div>
+            <div className="rounded-2xl border border-border/50 bg-primary p-8 text-primary-foreground lg:col-span-1"><h2 className="text-3xl font-bold text-white">Table Reservation</h2><p className="mt-3 text-sm leading-relaxed text-primary-foreground/90">Reserve in advance for terrace seating and peak dinner hours.</p><p className="mt-6 text-xs uppercase tracking-[0.2em] text-accent">Quick options</p><a href={whatsappLink} target="_blank" rel="noreferrer" className="font-ui mt-3 inline-flex items-center rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"><MessageCircle className="mr-2 h-4 w-4" /> WhatsApp Booking</a></div>
             <form onSubmit={handleReserve} className="rounded-2xl border border-border/50 bg-white p-8 shadow-sm lg:col-span-2">
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div><label className="mb-2 block text-sm font-medium">Name</label><input required value={reservation.name} onChange={(e) => setReservation((prev) => ({ ...prev, name: e.target.value }))} className="h-12 w-full rounded-xl border border-border px-3" placeholder="Your name" /></div>
                 <div><label className="mb-2 block text-sm font-medium">Date & Time</label><input required type="datetime-local" value={reservation.dateTime} onChange={(e) => setReservation((prev) => ({ ...prev, dateTime: e.target.value }))} className="h-12 w-full rounded-xl border border-border px-3" /></div>
               </div>
               <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-                <div><label className="mb-2 block text-sm font-medium">Guests</label><select value={reservation.guests} onChange={(e) => setReservation((prev) => ({ ...prev, guests: e.target.value }))} className="h-12 w-full rounded-xl border border-border px-3">{[1,2,3,4,5,6,8,10].map((count) => <option key={count} value={String(count)}>{count} Guest{count > 1 ? "s" : ""}</option>)}</select></div>
+                <div><label className="mb-2 block text-sm font-medium">Guests</label><select value={reservation.guests} onChange={(e) => setReservation((prev) => ({ ...prev, guests: e.target.value }))} className="h-12 w-full rounded-xl border border-border px-3">{[1, 2, 3, 4, 5, 6, 8, 10].map((count) => <option key={count} value={String(count)}>{count} Guest{count > 1 ? "s" : ""}</option>)}</select></div>
                 <div><label className="mb-2 block text-sm font-medium">Special Request</label><input value={reservation.request} onChange={(e) => setReservation((prev) => ({ ...prev, request: e.target.value }))} className="h-12 w-full rounded-xl border border-border px-3" placeholder="Window seat, birthday setup..." /></div>
               </div>
-              <button type="submit" className="mt-6 inline-flex items-center rounded-xl bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-accent/90">Reserve Now</button>
+              <button type="submit" className="font-ui mt-6 inline-flex items-center rounded-xl bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-accent/90">Reserve Now</button>
             </form>
           </div>
         </section>
