@@ -2,30 +2,44 @@
 @import "tailwindcss";
 
 :root {
-  --primary: 290 60% 55%;           /* HSL: soft, luxurious purple */
-  --primary-foreground: 0 0% 100%; /* White text on primary */
+  --primary: 290 60% 55%;
+  /* HSL: soft, luxurious purple */
+  --primary-foreground: 0 0% 100%;
+  /* White text on primary */
 
-  --secondary: 280 45% 70%;         /* Slightly muted purple for backgrounds or subtle accents */
-  --secondary-foreground: 0 0% 17%; /* Dark text on secondary backgrounds */
+  --secondary: 280 45% 70%;
+  /* Slightly muted purple for backgrounds or subtle accents */
+  --secondary-foreground: 0 0% 17%;
+  /* Dark text on secondary backgrounds */
 
-  --accent: 295 65% 50%;            /* Vibrant purple-pink for CTAs */
-  --accent-foreground: 0 0% 100%;   /* White text on accent */
+  --accent: 295 65% 50%;
+  /* Vibrant purple-pink for CTAs */
+  --accent-foreground: 0 0% 100%;
+  /* White text on accent */
 
-  --background: 240 10% 97%;        /* Off-white, clean background */
-  --foreground: 240 10% 17%;        /* Dark text color for readability */
+  --background: 240 10% 97%;
+  /* Off-white, clean background */
+  --foreground: 240 10% 17%;
+  /* Dark text color for readability */
 
-  --muted: 240 12% 94%;             /* Light grayish background for cards or sections */
-  --muted-foreground: 240 10% 40%;  /* Gray text on muted backgrounds */
+  --muted: 240 12% 94%;
+  /* Light grayish background for cards or sections */
+  --muted-foreground: 240 10% 40%;
+  /* Gray text on muted backgrounds */
 
-  --border: 270 20% 88%;            /* Subtle borders */
+  --border: 270 20% 88%;
+  /* Subtle borders */
 }
 
 
 
 @theme {
-  --font-serif: "Playfair Display", serif; /* headings, hero, banners */
-  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; /* body text */
-  --font-ui: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; /* buttons, badges, UI */
+  --font-serif: "Playfair Display", serif;
+  /* headings, hero, banners */
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* body text */
+  --font-ui: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* buttons, badges, UI */
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
   --color-secondary: hsl(var(--secondary));
@@ -92,6 +106,7 @@ h6 {
 html {
   scroll-behavior: smooth;
 }
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -103,15 +118,31 @@ html {
     transform: translateY(-100%);
     opacity: 0;
   }
+
   20% {
     opacity: 1;
   }
+
   80% {
     transform: translateY(0%);
     opacity: 1;
   }
+
   100% {
     transform: translateY(100%);
     opacity: 0;
   }
+}
+
+@keyframes slowZoom {
+  0% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1.18);
+  }
+}
+
+.zoom-in {
+  animation: slowZoom 6s ease-in-out  infinite;
 }

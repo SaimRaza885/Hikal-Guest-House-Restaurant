@@ -1,104 +1,68 @@
-import { Star, ShieldCheck, ThumbsUp, Globe, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
 
 export function TrustBanner() {
+  const images = [
+    "https://www.vrmintel.com/wp-content/uploads/2019/10/Booking.com-star-rating-roll-out.png",
+    "https://cdn.prod.website-files.com/62b1b17308b0d74291186304/63e062df260986496831f843_tailored-listing-booking-com-user.png",
+    "https://www.vrmintel.com/wp-content/uploads/2019/10/Booking.com-star-rating-roll-out.png",
+  
+  ];
+
+  const [current, setCurrent] = useState(0);
+
+  const prevSlide = () => {
+    setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-primary to-primary/90 py-16 md:py-20 text-white">
-      {/* Background image with better overlay control */}
-      <img
-        src="https://cdn.pixabay.com/photo/2014/09/21/17/56/mountaineering-455338_960_720.jpg"
-        alt="Stunning Hunza Valley view"
-        className="absolute inset-0 h-full w-full object-cover brightness-[0.65] contrast-[1.05]"
-      />
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-4xl mx-auto px-4 text-center">
+        
+        {/* Heading */}
+        <h2 className="text-3xl md:text-4xl font-bold mb-8">
+          Trusted by Guests on Major Travel Platforms
+        </h2>
 
-      {/* Subtle animated glow blobs — optional, can remove if too much */}
-      <div className="absolute inset-0 opacity-30 pointer-events-none">
-        <div className="absolute -left-24 top-10 h-96 w-96 rounded-full bg-blue-300 blur-3xl animate-pulse-slow" />
-        <div className="absolute -right-32 bottom-8 h-80 w-80 rounded-full bg-purple-300 blur-3xl animate-pulse-slow delay-1000" />
-      </div>
+        {/* Slider */}
+        <div className="relative max-h-[400px] overflow-hidden">
+          <img
+            src={images[current]}
+            alt="Guest reviews"
+            className="w-full rounded-2xl shadow-lg"
+          />
 
-      <div className="container-custom relative z-10 px-5 md:px-8">
-        {/* Headline — more emotional & benefit-oriented */}
-        <div className="text-center max-w-3xl mx-auto">
-          <p className="inline-block rounded-full bg-white/15 px-4 py-1.5 text-xs md:text-sm font-semibold tracking-wider uppercase backdrop-blur-sm border border-white/20">
-            Trusted by hundreds of travelers every year
-          </p>
+          {/* Controls */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-3 top-1/2 -translate-y-1/2 bg-white px-3 py-2 rounded-lg shadow"
+          >
+            ‹
+          </button>
 
-          <h2 className="mt-5 text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
-            Exceptional stays in Hunza Valley — loved by real guests
-          </h2>
-
-          <p className="mt-4 text-lg md:text-xl text-white/80 font-light">
-            Where breathtaking views meet genuine hospitality
-          </p>
+          <button
+            onClick={nextSlide}
+            className="absolute right-3 top-1/2 -translate-y-1/2 bg-white px-3 py-2 rounded-lg shadow"
+          >
+            ›
+          </button>
         </div>
 
-        {/* Main trust card — cleaner layout, better mobile stacking */}
-        <div className="mt-12 md:mt-16 mx-auto max-w-5xl">
-          <div className="rounded-3xl bg-white/12 backdrop-blur-xl border border-white/15 shadow-2xl shadow-black/20 p-7 md:p-10">
-            <div className="grid gap-8 md:gap-10 md:grid-cols-[1.1fr_1px_1fr_1fr] items-center">
-              {/* Left — big rating (most visual impact) */}
-              <div className="text-center md:text-left">
-                <div className="text-6xl md:text-7xl font-extrabold tracking-tight">9.6</div>
-                <div className="mt-2 text-xl md:text-2xl font-semibold">Exceptional</div>
-
-                <div className="mt-4 flex justify-center md:justify-start gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-6 w-6 fill-amber-400 text-amber-400 drop-shadow-sm"
-                    />
-                  ))}
-                </div>
-
-                <div className="mt-3 text-sm text-white/70 flex items-center justify-center md:justify-start gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-green-400" />
-                  <span>Verified on major platforms</span>
-                </div>
-              </div>
-
-              {/* Vertical divider — hidden on mobile */}
-              <div className="hidden h-28 w-px bg-gradient-to-b from-transparent via-white/40 to-transparent md:block" />
-
-              {/* Middle — key trust points (icons + short text) */}
-              <div className="space-y-4 text-base md:text-lg">
-                <div className="flex items-center gap-3">
-                  <ThumbsUp className="h-5 w-5 flex-shrink-0 text-green-400" />
-                  <span>Outstanding location & mountain views</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <ShieldCheck className="h-5 w-5 flex-shrink-0 text-green-400" />
-                  <span>100% verified guest reviews</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Globe className="h-5 w-5 flex-shrink-0 text-green-400" />
-                  <span>Travelers from 25+ countries</span>
-                </div>
-              </div>
-
-              {/* Right — third-party proof (most credible) */}
-              <div className="text-center md:text-right space-y-3">
-                <p className="text-sm md:text-base text-white/70 font-medium">Rated excellent on</p>
-
-                <div className="space-y-2.5 text-base md:text-lg font-semibold">
-                  <div className="flex items-center justify-center md:justify-end gap-2">
-                    Booking.com <span className="text-green-400">9.6 / 10</span>
-                  </div>
-                  <div className="flex items-center justify-center md:justify-end gap-2">
-                    Google <span className="text-green-400">4.8 ★</span>
-                  </div>
-                  <div className="flex items-center justify-center md:justify-end gap-2">
-                    TripAdvisor <span className="text-green-400">Excellent</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-4">
+          {images.map((_, i) => (
+            <div
+              key={i}
+              className={`h-2 w-2 rounded-full ${
+                i === current ? "bg-black" : "bg-gray-300"
+              }`}
+            />
+          ))}
         </div>
 
-        {/* Subtle social proof closing line */}
-        <p className="mt-10 text-center text-base md:text-lg text-white/75 font-light italic max-w-3xl mx-auto">
-          “The most memorable stay we’ve ever had in Pakistan.” — hundreds of happy guests
-        </p>
       </div>
     </section>
   );

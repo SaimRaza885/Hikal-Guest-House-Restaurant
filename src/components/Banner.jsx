@@ -9,7 +9,7 @@ function Banner({
   ratingText = "Rated Exceptional" 
 }) {
   return (
-    <section className="relative h-[75vh] min-h-[520px] w-full overflow-hidden">
+    <section className="relative h-[50vh] min-h-[420px] w-full overflow-hidden">
       {/* Background Image */}
       <img
         src={image}
@@ -25,15 +25,15 @@ function Banner({
         <div className="max-w-3xl space-y-4">
           
           {/* Rating Badge */}
-          <p className="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm">
+          {/* <p className="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm">
             {Array.from({ length: rating }).map((_, i) => (
               <Star key={i} className="h-4 w-4 text-yellow-400" />
             ))}
             {ratingText} on {ratingPlatform}
-          </p>
+          </p> */}
 
           {/* Title */}
-          <h1 className="text-4xl font-bold md:text-6xl leading-tight">
+          <h1 className="text-4xl font-bold md:text-7xl leading-tight">
             {title}
           </h1>
 

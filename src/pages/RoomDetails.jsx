@@ -432,7 +432,7 @@ export default function RoomDetails({ params }) {
                   href={whatsappLink}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-3 inline-flex w-full items-center justify-center rounded-xl border border-accent px-4 py-3 text-sm font-medium text-accent transition-colors hover:bg-accent hover:text-accent-foreground"
+                  className="mt-3 inline-flex w-full items-center justify-center rounded-xl border border-accent px-4 py-3 text-sm font-medium  transition-colors  bg-green-600 text-white hover:bg-green-700"
                 >
                   <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp Booking
                 </a>

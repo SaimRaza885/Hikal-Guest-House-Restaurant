@@ -21,14 +21,14 @@ export default function Rooms() {
       <Navigation />
       <Banner
         image="https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&q=80&w=1600"
-        title="Rooms | Hikal Guest House"
-        subtitle="Gallery of Hikal Guest House"
+        title="Rooms"
+        subtitle="Explore room categories at Hikal Guest House"
         rating={5}
         ratingPlatform="Gallery"
         ratingText="Gallery"
       />
 
-      <Reveal delay={120}>
+      {/* <Reveal delay={120}> */}
         <div className="container-custom py-24">
           {isLoading ? (
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -40,13 +40,13 @@ export default function Rooms() {
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {rooms.map((room, idx) => (
                 <Reveal key={room.id} delay={80 + idx * 120}>
-                  <RoomCard room={room} />
+                  <RoomCard room={room} key={idx}/>
                 </Reveal>
               ))}
             </div>
           )}
         </div>
-      </Reveal>
+      {/* </Reveal> */}
 
       <Footer />
     </div>

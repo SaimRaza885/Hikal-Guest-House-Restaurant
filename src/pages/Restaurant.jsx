@@ -61,7 +61,7 @@ const menuSections = [
 ];
 
 const restaurantReviews = [
-  { id: "rest-review-1", name: "Sana A.", rating: 5, comment: "The terrace breakfast and mountain view were unforgettable.", image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800" },
+  { id: "rest-review-1", name: "Sana A.", rating: 5, comment: "The terrace breakfast and mountain view ", image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800" },
   { id: "rest-review-2", name: "Hamza K.", rating: 5, comment: "Excellent BBQ platter and very warm service.", image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800" },
   { id: "rest-review-3", name: "Mariam R.", rating: 4, comment: "Loved the vegetarian options and cozy ambience.", image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?auto=format&fit=crop&q=80&w=800" }
 ];
@@ -89,7 +89,7 @@ export default function Restaurant() {
 
       <Banner
         image="https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&q=80&w=1600"
-        title="Mountain Hospitality Reimagined"
+        title="Restaurant"
         subtitle="A peaceful family‑run retreat at Rakaposhi View Point offering breathtaking views, authentic Hunza warmth, and unforgettable stays."
         rating={5}
         ratingPlatform="Booking.com"
@@ -107,7 +107,7 @@ export default function Restaurant() {
             <div className="-mx-4 flex gap-4 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 lg:grid-cols-4">
               {featuredDishes.map((dish, idx) => (
                 <Reveal key={dish.id} delay={80 + idx * 120}>
-                  <article className="group min-w-[82%] overflow-hidden rounded-2xl border border-border/50 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:min-w-0">
+                  <article className="group min-w-[82%] md:w-auto w-[300px] overflow-hidden rounded-2xl border border-border/50 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:min-w-0">
                     <div className="relative"><img src={dish.image} alt={dish.title} loading="lazy" className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105" /><span className="absolute left-3 top-3 rounded-full bg-primary/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white">{dish.badge}</span></div>
                     <div className="p-4"><h3 className="text-lg font-semibold">{dish.title}</h3><p className="mt-1 text-sm text-muted-foreground">{dish.desc}</p><p className="mt-3 text-sm font-semibold text-accent">{dish.price}</p></div>
                   </article>
@@ -123,7 +123,7 @@ export default function Restaurant() {
           <div className="container-custom">
             <h2 className="mb-8 text-3xl font-bold md:text-4xl">Restaurant Experience</h2>
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-              <div className="overflow-hidden rounded-2xl border border-border/60 bg-muted/20 lg:col-span-2"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=1800" alt="Restaurant ambience" className="h-[360px] w-full object-cover" loading="lazy" /></div>
+              <div className="overflow-hidden rounded-2xl  bg-muted/20 lg:col-span-2"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=1800" alt="Restaurant ambience" className=" w-full object-cover" loading="lazy" /></div>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">{experienceFeatures.map((feature, idx) => { const Icon = feature.icon; return <Reveal key={feature.id} delay={80 + idx * 120}><article className="rounded-xl border border-border/50 bg-[#FAF9F6] p-4 shadow-sm"><div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary"><Icon className="h-5 w-5" /></div><h3 className="text-base font-semibold">{feature.title}</h3><p className="mt-1 text-sm text-muted-foreground">{feature.desc}</p></article></Reveal>; })}</div>
             </div>
           </div>
@@ -133,7 +133,9 @@ export default function Restaurant() {
       <Reveal delay={160}>
         <section className="py-20">
           <div className="container-custom">
-            <div className="mb-8 flex items-center justify-between"><h2 className="text-3xl font-bold md:text-4xl">Menu</h2><button className="font-ui rounded-xl border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white" type="button">View Full Menu</button></div>
+            <div className="mb-8 flex items-center justify-between"><h2 className="text-3xl font-bold md:text-4xl">Menu</h2>
+            {/* <button className="font-ui rounded-xl border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white" type="button">View Full Menu</button> */}
+            </div>
             <div className="space-y-12">
               {menuSections.map((section, sectionIdx) => (
                 <div key={section.id}>
@@ -187,7 +189,7 @@ export default function Restaurant() {
             <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0">
               {restaurantReviews.map((review, idx) => (
                 <Reveal key={review.id} delay={80 + idx * 120}>
-                  <article className="min-w-[85%] snap-center overflow-hidden rounded-2xl border border-border/50 bg-white shadow-sm md:min-w-0"><img src={review.image} alt={review.name} loading="lazy" className="h-40 w-full object-cover" /><div className="p-4"><div className="mb-2 flex items-center justify-between"><p className="font-semibold">{review.name}</p><div className="flex">{Array.from({ length: review.rating }).map((_, i) => <Star key={`${review.id}-${i}`} className="h-4 w-4 fill-accent text-accent" />)}</div></div><p className="text-sm text-muted-foreground">{review.comment}</p></div></article>
+                  <article className=" md:min-w-[82%] sm:w-auto w-[250px] snap-center overflow-hidden rounded-2xl border border-border/50 bg-white shadow-sm md:min-w-0"><img src={review.image} alt={review.name} loading="lazy" className="h-40 w-full object-cover" /><div className="p-4"><div className="mb-2 flex items-center justify-between"><p className="font-semibold">{review.name}</p><div className="flex">{Array.from({ length: review.rating }).map((_, i) => <Star key={`${review.id}-${i}`} className="h-4 w-4 fill-accent text-accent" />)}</div></div><p className="text-sm text-muted-foreground">{review.comment}</p></div></article>
                 </Reveal>
               ))}
             </div>

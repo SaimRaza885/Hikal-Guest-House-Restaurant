@@ -39,8 +39,8 @@ export default function Contact() {
 
       <Banner
         image="https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&q=80&w=1600"
-        title="Gallery | Hikal Guest House"
-        subtitle="Gallery of Hikal Guest House"
+        title="Contact Us"
+        subtitle="Contact Hikal Guest House for inquiries and reservations."
         rating={5}
         ratingPlatform="Gallery"
         ratingText="Gallery"

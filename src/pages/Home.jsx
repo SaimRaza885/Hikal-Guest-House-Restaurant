@@ -48,11 +48,13 @@ export default function Home() {
     <div className="min-h-screen bg-background font-sans">
       <Navigation />
       <Hero />
-      <StickySocial />
+    
+        <StickySocial />
+    
 
 
- {/* ROOMS */}
- <section className="bg-muted/20 py-28" id="rooms">
+      {/* ROOMS */}
+      <section className="bg-muted/20 py-28" id="rooms">
         <div className="container-custom">
           <div className="mb-16 text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.35em] text-accent">Rooms & Suites</span>
@@ -124,7 +126,7 @@ export default function Home() {
         </div>
       </section>
 
-     
+
 
 
 

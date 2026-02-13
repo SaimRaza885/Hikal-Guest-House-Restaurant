@@ -19,7 +19,13 @@ import {
   Star,
   MapPin,
   Users,
-  HeartHandshake
+  HeartHandshake,
+  Mail,
+  Phone,
+  Facebook,
+  Instagram,
+  Twitter,
+  ChefHat
 } from "lucide-react";
 
 import { Navigation } from "../components/Navigation";
@@ -152,13 +158,13 @@ export default function Facilities() {
 
       {/* HERO WITH IMAGE + OVERLAY */}
       <Banner
-  image="https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&q=80&w=1600"
-  title="About & Facilities | Hikal Guest House"
-  subtitle="A peaceful family‑run retreat at Rakaposhi View Point offering breathtaking views, authentic Hunza warmth, and unforgettable stays."
-  rating={5}
-  ratingPlatform="Booking.com"
-  ratingText="About & Facilities"
-/>
+        image="https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&q=80&w=1600"
+        title=" Facilities"
+        subtitle="Facilities of Hikal Guest House"
+        rating={5}
+        ratingPlatform="Booking.com"
+        ratingText="About & Facilities"
+      />
 
 
       <div className="container-custom py-20">
@@ -186,28 +192,55 @@ export default function Facilities() {
 
         {/* WHO WE ARE */}
         <Reveal>
-          <section className="mb-24 grid gap-14 md:grid-cols-2 md:items-center">
-            <img
-              src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&q=80&w=1200"
-              className="rounded-3xl shadow-xl object-cover"
-              alt="Guest house exterior"
-            />
-            <div>
-              <h2 className="text-3xl font-bold mb-5">Who We Are</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Hikal Guest House is a peaceful mountain retreat located at the iconic
-                Rakaposhi View Point along the Karakoram Highway. Our mission is simple —
-                provide genuine hospitality, comfortable living, and breathtaking natural
-                surroundings.
-              </p>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
-                Guests from around the world choose us for our warm family hosting,
-                scenic location, and relaxing atmosphere that reflects the true spirit
-                of Hunza Valley.
-              </p>
+          <section className="bg-white py-20">
+            <div className="container-custom grid grid-cols-1 gap-8 lg:grid-cols-2 items-stretch">
+
+              {/* Image */}
+              <div className="h-full w-full">
+                <img
+                  src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?auto=format&fit=crop&q=80&w=1600"
+                  alt="Chef story"
+                  loading="lazy"
+                  className="h-full w-full rounded-2xl object-cover"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="flex flex-col  rounded-2xl border border-border/50 bg-muted/15 p-8 h-full">
+                {/* Who We Are */}
+                <h3 className="mt-6 md:text-5xl  text-3xl mb-4 font-semibold text-accent">Who We Are</h3>
+                <p className="mt-2 text-muted-foreground leading-relaxed">
+                  We are a team of passionate culinary artisans, dedicated to creating unforgettable dining experiences for every guest who walks through our doors. Rooted in both tradition and innovation, our chefs carefully select the freshest local ingredients and blend them with international techniques to craft dishes that are not only flavorful but also visually stunning.
+                </p>
+                <p className="mt-2 text-muted-foreground leading-relaxed">
+                  Every plate tells a story — from the textures and aromas to the intricate presentation — designed to delight the senses and evoke a sense of warmth and hospitality. Beyond the food, we strive to create an atmosphere where guests feel valued, inspired, and truly at home. Our mission is simple yet profound: to transform each meal into a memorable journey, leaving a lasting impression through flavor, creativity, and heartfelt care.
+                </p>
+
+                {/* Contact Info */}
+                <div className="mt-6 flex flex-col gap-3">
+                  <div className="flex items-center gap-3 text-muted-foreground">
+                    <Phone className="h-5 w-5 text-accent" /> <span>+1 (555) 123-4567</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-muted-foreground">
+                    <Mail className="h-5 w-5 text-accent" /> <span>contact@restaurant.com</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-muted-foreground">
+                    <MapPin className="h-5 w-5 text-accent" /> <span>123 Culinary Street, City</span>
+                  </div>
+              </div>
+
+                {/* Optional social icons */}
+                <div className="mt-4 flex gap-4">
+                  <a href="#" className="text-accent hover:text-accent/80"><Facebook className="h-5 w-5" /></a>
+                  <a href="#" className="text-accent hover:text-accent/80"><Instagram className="h-5 w-5" /></a>
+                  <a href="#" className="text-accent hover:text-accent/80"><Twitter className="h-5 w-5" /></a>
+                </div>
+              </div>
             </div>
+
           </section>
         </Reveal>
+
 
         {/* RATINGS */}
         <Reveal>
@@ -232,28 +265,28 @@ export default function Facilities() {
         </Reveal>
 
         {/* FACILITIES */}
-        <Reveal>
-          <section>
-            <h2 className="text-3xl font-bold text-center mb-12">Our Facilities</h2>
-            <div className="space-y-16">
-              {categories.map((cat, i) => (
-                <div key={i}>
-                  <h3 className="text-2xl font-semibold mb-6">{cat.title}</h3>
-                  <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                    {cat.items.map((item, idx) => (
-                      <FacilityCard key={idx} item={item} />
-                    ))}
-                  </div>
+
+        <section>
+          <h2 className="text-3xl font-bold text-center mb-12">Our Facilities</h2>
+          <div className="space-y-16">
+            {categories.map((cat, i) => (
+              <div key={i}>
+                <h3 className="text-2xl font-semibold mb-6">{cat.title}</h3>
+                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                  {cat.items.map((item, idx) => (
+                    <FacilityCard key={idx} item={item} />
+                  ))}
                 </div>
-              ))}
-            </div>
-          </section>
-        </Reveal>
+              </div>
+            ))}
+          </div>
+        </section>
+
 
         {/* CTA */}
         <Reveal>
           <section className="mt-24 rounded-3xl bg-gradient-to-r from-primary to-primary/80 px-8 py-12 text-center text-white shadow-xl">
-            <h3 className="text-3xl font-semibold">Experience Hunza With Us</h3>
+            <h3 className="text-3xl font-semibold">Experience Nagar  With Us</h3>
             <p className="mt-3 text-white/85">
               Wake up to mountain views, enjoy peaceful surroundings, and feel genuine hospitality.
             </p>
