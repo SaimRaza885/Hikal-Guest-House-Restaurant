@@ -7,12 +7,12 @@ import { images } from "../asserts/data";
 
 // Example: replace with Instagram image links
 const galleryImages = [
-images.gallary_1,
+// images.gallary_1,
 images.gallary_2,
 images.gallary_3,
 images.gallary_4,
 images.gallary_5,
-images.gallary_6,
+// images.gallary_6,
 images.gallary_7,
 images.hero_1,
 
