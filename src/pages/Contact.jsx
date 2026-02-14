@@ -38,7 +38,7 @@ export default function Contact() {
       <Navigation />
 
       <Banner
-        image="https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&q=80&w=1600"
+        image="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         title="Contact Us"
         subtitle="Contact Hikal Guest House for inquiries and reservations."
         rating={5}

@@ -88,9 +88,9 @@ export default function Restaurant() {
       <Navigation />
 
       <Banner
-        image="https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&q=80&w=1600"
+        image="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         title="Restaurant"
-        subtitle="A peaceful family‑run retreat at Rakaposhi View Point offering breathtaking views, authentic Hunza warmth, and unforgettable stays."
+        subtitle="Authentic flavors and warm hospitality in a serene setting."
         rating={5}
         ratingPlatform="Booking.com"
         ratingText="Rated Exceptional"

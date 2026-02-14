@@ -4,7 +4,6 @@ import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
 import RoomDetails from "./pages/RoomDetails";
 import Gallery from "./pages/Gallery";
-import Facilities from "./pages/Facilities";
 import Restaurant from "./pages/Restaurant";
 import Attractions from "./pages/Attractions";
 import Contact from "./pages/Contact";
@@ -12,6 +11,7 @@ import Booking from "./pages/Booking";
 import Policies from "./pages/Policies";
 import NotFound from "./pages/NotFound";
 import { ToastProvider } from "./hooks/useToast.jsx";
+import About from "./pages/About.jsx";
 
 function ScrollManager() {
   const [location] = useLocation();
@@ -55,7 +55,7 @@ function App() {
         <Route path="/rooms" component={Rooms} />
         <Route path="/rooms/:slug" component={RoomDetails} />
         <Route path="/gallery" component={Gallery} />
-        <Route path="/facilities" component={Facilities} />
+        <Route path="/about" component={About} />
         <Route path="/restaurant" component={Restaurant} />
         <Route path="/attractions" component={Attractions} />
         <Route path="/contact" component={Contact} />

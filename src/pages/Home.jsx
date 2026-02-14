@@ -13,6 +13,7 @@ import { PageLoader } from "../components/PageLoader";
 import { Mountain, Flower2, Utensils, Star, Quote, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { TrustBanner } from "../components/TrustBanner";
+import { Location } from "../components/Location";
 
 const highlights = [
   {
@@ -46,15 +47,15 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background font-sans">
-      <Navigation />
+     
       <Hero />
     
-        <StickySocial />
     
 
 
       {/* ROOMS */}
       <section className="bg-muted/20 py-28" id="rooms">
+        <StickySocial />
         <div className="container-custom">
           <div className="mb-16 text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.35em] text-accent">Rooms & Suites</span>
@@ -225,6 +226,7 @@ export default function Home() {
       </section> */}
 
       <FaqSection />
+      <Location/>
       <Footer />
     </div>
   );

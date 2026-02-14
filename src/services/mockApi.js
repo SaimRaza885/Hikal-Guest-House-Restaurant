@@ -9,7 +9,7 @@ const state = {
   messages: []
 };
 
-const delay = (ms = 450) => new Promise((resolve) => setTimeout(resolve, ms));
+// const delay = (ms = 450) => new Promise((resolve) => setTimeout(resolve, ms));
 const makeId = (prefix) => `${prefix}-${Date.now()}-${Math.floor(Math.random() * 10000)}`;
 
 export async function fetchRooms() {

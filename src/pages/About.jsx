@@ -146,7 +146,7 @@ function FacilityCard({ item }) {
    PAGE
 ========================================================= */
 
-export default function Facilities() {
+export default function About() {
   useSeo({
     title: "About & Facilities | Hikal Guest House",
     description: "Discover our story, guest trust ratings, and premium facilities at Hikal Guest House — a peaceful mountain retreat in Hunza Valley."
@@ -158,9 +158,9 @@ export default function Facilities() {
 
       {/* HERO WITH IMAGE + OVERLAY */}
       <Banner
-        image="https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&q=80&w=1600"
-        title=" Facilities"
-        subtitle="Facilities of Hikal Guest House"
+        image="https://plus.unsplash.com/premium_photo-1677529498680-fdb9d5ee762a?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        title=" About us"
+        subtitle="About  Hikal Guest House"
         rating={5}
         ratingPlatform="Booking.com"
         ratingText="About & Facilities"

@@ -17,10 +17,11 @@ export default function Rooms() {
   const { data: rooms, isLoading } = useRooms();
 
   return (
-    <div id="rooms" className="min-h-screen bg-background">
+    <>
       <Navigation />
+    <div id="rooms" className="min-h-screen bg-background">
       <Banner
-        image="https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&q=80&w=1600"
+        image="https://images.unsplash.com/photo-1702675301228-b3291c1060bc?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         title="Rooms"
         subtitle="Explore room categories at Hikal Guest House"
         rating={5}
@@ -50,5 +51,6 @@ export default function Rooms() {
 
       <Footer />
     </div>
+        </>
   );
 }

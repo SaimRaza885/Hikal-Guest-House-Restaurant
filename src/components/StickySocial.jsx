@@ -59,7 +59,7 @@ export function StickySocial() {
         aria-label="Open chat"
       >
         {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
-        <span className="text-sm font-medium">Let’s Chat</span>
+        <span className="text-sm font-medium hidden sm:block">Let’s Chat</span>
       </button>
     </div>
   );
