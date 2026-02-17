@@ -43,7 +43,7 @@ export function Navigation() {
       <nav className={`fixed left-0 right-0 z-50 w-full transition-all duration-300 bg-white border-b border-gray-200 ${scrolled ? "top-0 shadow-md" : "top-8"}`}>
         <div className="container mx-auto px-4 lg:px-8 py-4">
           <div className="flex items-center justify-between lg:justify-center">
-            
+
             {/* Left Links - Desktop Only */}
             <div className="hidden lg:flex items-center gap-8 xl:gap-12">
               {leftLinks.map((link) => (
@@ -65,10 +65,10 @@ export function Navigation() {
                 />
                 <div className="text-center">
                   <h1 className="text-xl md:text-2xl font-bold tracking-wide text-amber-700">
-                    HIKAL NAGAR
+                    HIKAL GUEST
                   </h1>
                   <p className="text-xs tracking-widest text-amber-600">
-                    HOTEL & RESORT
+                    HOUSE NAGAR
                   </p>
                 </div>
               </div>
@@ -86,10 +86,10 @@ export function Navigation() {
             </div>
 
             {/* Mobile Menu Button */}
-            <button 
-              className="p-2 lg:hidden focus:outline-none" 
-              onClick={() => setIsOpen((prev) => !prev)} 
-              type="button" 
+            <button
+              className="p-2 lg:hidden focus:outline-none"
+              onClick={() => setIsOpen((prev) => !prev)}
+              type="button"
               aria-label="Toggle menu"
               aria-expanded={isOpen}
             >
@@ -108,9 +108,9 @@ export function Navigation() {
             <div className="container mx-auto px-4 py-6">
               <div className="flex flex-col gap-1">
                 {allLinks.map((link) => (
-                  <Link 
-                    key={link.href} 
-                    href={link.href} 
+                  <Link
+                    key={link.href}
+                    href={link.href}
                     onClick={() => setIsOpen(false)}
                   >
                     <span className={`block py-3 px-2 text-base font-medium border-b border-gray-200 transition-colors ${location === link.base ? "text-accent" : "text-gray-800 hover:text-accent"}`}>

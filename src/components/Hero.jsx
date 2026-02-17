@@ -1,13 +1,10 @@
-import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
-import { Reveal } from "./Reveal";
+import { useEffect, useState } from "react";
 import { images } from "../asserts/data";
 import { Navigation } from "./Navigation";
 
 const heroSlides = [
   images.hero_2,
-  images.gallary_5,
+  "https://img1.wsimg.com/isteam/ip/d458d651-014c-4559-94f5-d4cdd54c7a6f/DJI_0019.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1160,h:652",
   images.hero_3,
 ];
 
@@ -17,41 +14,50 @@ export function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000); // changes every 5000ms = 5 seconds
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
-
-  // const slideIndicators = useMemo(() => heroSlides.map((_, idx) => idx), []);
-
   return (
     <>
-    <Navigation/>
-     <div className="h-screen w-full overflow-hidden">
-      {/* Background slides */}
-      {heroSlides.map((slide, idx) => (
-        <div
-        key={slide}
-          className={`absolute inset-0 bg-cover bg-center  bg-no-repeat transition-opacity duration-1000 ${idx === activeSlide ? "opacity-100" : "opacity-0"}`}
-          style={{ backgroundImage: `url('${slide}')` }}
-        >
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-black via-black/30 to-black/60" /> */}
+      <Navigation />
 
-
-        </div>
-      ))}
-
-   
-      {/* Scroll indicator */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-10 flex justify-center">
-        <div className="flex flex-col items-center text-white/80">
-          <span className="mb-2 text-xs uppercase tracking-[0.3em]">Scroll</span>
-          <div className="h-10 w-[2px] overflow-hidden rounded-full bg-white/25">
-            <div className="h-10 w-full animate-[scrollIndicator_1.4s_ease-in-out_infinite] bg-white" />
+      <div
+        className="relative w-full overflow-hidden bg-black   h-[450px] md:h-[500px] lg:h-screen"
+      // style={{
+      //   height: "100svh",
+      //   minHeight: "56.25vw", // 16:9 ratio — forces landscape on portrait phones
+      // }}
+      >
+        {heroSlides.map((slide, idx) => (
+          <div
+            key={idx}
+            className="absolute inset-0 transition-opacity duration-1000"
+            style={{
+              opacity: idx === activeSlide ? 1 : 0,
+              zIndex: idx === activeSlide ? 2 : 1,
+            }}
+          >
+            <img
+              src={slide}
+              alt={`Hikal Guest House ${idx + 1}`}
+              className="absolute inset-0 w-full h-full"
+              style={{
+                objectFit: "cover",
+                objectPosition: "center center",
+                animation: idx === activeSlide ? "subtleZoom 6s ease-in-out forwards" : "none",
+              }}
+            />
           </div>
-        </div>
+        ))}
       </div>
-    </div>
-      </>
+
+      <style>{`
+        @keyframes subtleZoom {
+          from { transform: scale(1);   }
+          to   { transform: scale(1.07); }
+        }
+      `}</style>
+    </>
   );
 }
