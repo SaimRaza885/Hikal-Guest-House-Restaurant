@@ -56,13 +56,11 @@ export default function AboutPage() {
       />
 
       <div className="container-custom py-20 space-y-24">
-
-        {/* TRUST STATS */}
+ 
         <Reveal>
           <TrustStatsGrid />
         </Reveal>
-
-        {/* WHO WE ARE */}
+ 
         <Reveal>
           <WhoWeAreSection
             paragraphs={WHO_PARAGRAPHS}
@@ -71,20 +69,17 @@ export default function AboutPage() {
           />
         </Reveal>
 
-        {/* RATINGS */}
-        <Reveal>
+       
           <RatingPlatformsGrid />
-        </Reveal>
+       
 
-        {/* FACILITIES */}
-        <Reveal>
+     
           <FacilitiesGrid />
-        </Reveal>
+     
 
-        {/* CTA */}
-        <Reveal>
+      
           <CtaBanner />
-        </Reveal>
+       
 
       </div>
 
