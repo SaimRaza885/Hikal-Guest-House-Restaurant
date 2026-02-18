@@ -20,7 +20,7 @@ export function Footer() {
           <div className="flex flex-col gap-2">
             <Link href="/rooms" className="w-fit text-sm text-primary-foreground/80 transition-colors hover:text-accent">Rooms & Suites</Link>
             <Link href="/restaurant" className="w-fit text-sm text-primary-foreground/80 transition-colors hover:text-accent">Dining</Link>
-            <Link href="/facilities" className="w-fit text-sm text-primary-foreground/80 transition-colors hover:text-accent">Facilities</Link>
+            <Link href="/about" className="w-fit text-sm text-primary-foreground/80 transition-colors hover:text-accent">About</Link>
             <Link href="/gallery" className="w-fit text-sm text-primary-foreground/80 transition-colors hover:text-accent">Gallery</Link>
           
           </div>
