@@ -23,11 +23,7 @@ export function Hero() {
       <Navigation />
 
       <div
-        className="relative w-full overflow-hidden bg-black   h-[450px] md:h-[500px] lg:h-screen"
-      // style={{
-      //   height: "100svh",
-      //   minHeight: "56.25vw", // 16:9 ratio — forces landscape on portrait phones
-      // }}
+        className="relative w-full overflow-hidden bg-black   h-[450px] md:h-[500px] lg:min-h-screen"
       >
         {heroSlides.map((slide, idx) => (
           <div
@@ -45,19 +41,13 @@ export function Hero() {
               style={{
                 objectFit: "cover",
                 objectPosition: "center center",
-                animation: idx === activeSlide ? "subtleZoom 6s ease-in-out forwards" : "none",
               }}
             />
           </div>
         ))}
       </div>
 
-      <style>{`
-        @keyframes subtleZoom {
-          from { transform: scale(1);   }
-          to   { transform: scale(1.07); }
-        }
-      `}</style>
+ 
     </>
   );
 }

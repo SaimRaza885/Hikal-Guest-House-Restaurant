@@ -1,6 +1,4 @@
 import { useMemo } from "react";
-import { Navigation } from "../components/Navigation";
-import { Footer } from "../components/Footer";
 import { BookingForm } from "../components/BookingForm";
 import { useSeo } from "../hooks/useSeo";
 
@@ -30,7 +28,7 @@ export default function Booking() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
+     
 
       <div className="relative min-h-[300px] h-[40vh] overflow-hidden">
         <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop" alt="Booking Header" className="absolute inset-0 h-full w-full object-cover" />
@@ -46,7 +44,6 @@ export default function Booking() {
         <div className="mx-auto max-w-4xl"><BookingForm initialValues={prefill} /></div>
       </div>
 
-      <Footer />
     </div>
   );
 }

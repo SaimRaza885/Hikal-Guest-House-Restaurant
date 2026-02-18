@@ -1,7 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight, Image as ImageIcon } from "lucide-react";
-import { Navigation } from "../components/Navigation";
-import { Footer } from "../components/Footer";
 import { useSeo } from "../hooks/useSeo";
 import Banner from "../components/Banner";
 import { images } from "../asserts/data";
@@ -126,7 +124,7 @@ export default function Gallery() {
 
   return (
     <div id="gallery" className="min-h-screen bg-background">
-      <Navigation />
+    
 
       <Banner
         image={galleryImages[0]}
@@ -254,7 +252,6 @@ export default function Gallery() {
         </div>
       )}
 
-      <Footer />
     </div>
   );
 }

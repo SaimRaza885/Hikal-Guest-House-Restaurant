@@ -22,7 +22,7 @@ export function Footer() {
             <Link href="/restaurant" className="w-fit text-sm text-primary-foreground/80 transition-colors hover:text-accent">Dining</Link>
             <Link href="/facilities" className="w-fit text-sm text-primary-foreground/80 transition-colors hover:text-accent">Facilities</Link>
             <Link href="/gallery" className="w-fit text-sm text-primary-foreground/80 transition-colors hover:text-accent">Gallery</Link>
-            <Link href="/attractions" className="w-fit text-sm text-primary-foreground/80 transition-colors hover:text-accent">Nearby Attractions</Link>
+          
           </div>
         </div>
 

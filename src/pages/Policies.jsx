@@ -1,5 +1,4 @@
-import { Navigation } from "../components/Navigation";
-import { Footer } from "../components/Footer";
+
 import { Clock, Baby, PawPrint, Ban } from "lucide-react";
 import { useSeo } from "../hooks/useSeo";
 
@@ -11,8 +10,7 @@ export default function Policies() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
-
+     
       <div className="container-custom py-32 md:py-48">
         <h1 className="mb-12 text-center text-4xl font-bold text-primary">Guest Policies</h1>
 
@@ -24,7 +22,6 @@ export default function Policies() {
         </div>
       </div>
 
-      <Footer />
     </div>
   );
 }
